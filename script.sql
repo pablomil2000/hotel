@@ -13,6 +13,7 @@ CREATE TABLE IF NOT EXISTS categiriaHabitacion(
     Id_Categoria INT AUTO_INCREMENT PRIMARY KEY,
     tipo VARCHAR(75),
     imagen VARCHAR(100),
+    imagen_room VARCHAR(100),
     tamaño INT(4),
     precio INT(5),
     capacidad INT(2),
@@ -20,11 +21,13 @@ CREATE TABLE IF NOT EXISTS categiriaHabitacion(
     fecha timestamp
 );
 
-INSERT INTO categiriaHabitacion(tipo,imagen,tamaño,precio,capacidad,tipo_cama) VALUES
-("Doble","views/img/room/room-b1.jpg",8,49,2,"King Size"),
-("Premium","views/img/room/room-b2.jpg",12,99,2,"King Size"),
-("Deluxe","views/img/room/room-b3.jpg",18,149,2,"King Size"),
-("Familiar","views/img/room/room-b4.jpg",28,199,5,"King Size");
+INSERT INTO categiriaHabitacion(tipo,imagen, imagen_room,tamaño,precio,capacidad,tipo_cama) VALUES
+("Doble","views/img/room/room-b1.jpg","VIEWS/img/room/room-3.jpg",8,49,2,"King Size"),
+("Premium","views/img/room/room-b2.jpg","VIEWS/img/room/room-1.jpg",12,99,2,"King Size"),
+("Deluxe","views/img/room/room-b3.jpg","VIEWS/img/room/room-2.jpg",18,149,2,"King Size"),
+("Familiar","views/img/room/room-b4.jpg","VIEWS/img/room/room-4.jpg",28,199,5,"King Size"),
+("Individual","views/img/room/room-4.jpg","VIEWS/img/room/room-4.jpg",28,199,5,"King Size"),
+("Doble","views/img/room/room-6.jpg","views/img/room/room-6.jpg",28,199,5,"King Size");
 
 CREATE TABLE IF NOT EXISTS servicios(
     id_servicio INT AUTO_INCREMENT PRIMARY KEY,

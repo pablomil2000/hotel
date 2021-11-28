@@ -46,7 +46,7 @@
         </div>
         <div class="header-configure-area">
             <div class="language-option">
-                <img src="img/flag.jpg" alt="">
+                <img src="../img/flag.jpg" alt="">
                 <span>EN <i class="fa fa-angle-down"></i></span>
                 <div class="flag-dropdown">
                     <ul>
@@ -109,7 +109,7 @@
                             </div>
                             <a href="#" class="bk-btn">Booking Now</a>
                             <div class="language-option">
-                                <img src="img/flag.jpg" alt="">
+                                <img src="../img/flag.jpg" alt="">
                                 <span>EN <i class="fa fa-angle-down"></i></span>
                                 <div class="flag-dropdown">
                                     <ul>
@@ -129,7 +129,7 @@
                     <div class="col-lg-2">
                         <div class="logo">
                             <a href="inicio">
-                                <img src="img/logo.png" alt="">
+                                <img src="../img/logo.png" alt="">
                             </a>
                         </div>
                     </div>
@@ -138,7 +138,7 @@
                             <nav class="mainmenu">
                                 <ul>
                                     <li class="active"><a href="inicio">Home</a></li>
-                                    <li><a href="Rooms">Rooms</a></li>
+                                    <li><a href="Rooms&pag=1">Rooms</a></li>    <!--echale un ojo a esto-->
                                     <li><a href="about-us">About Us</a></li>
                                     <li><a href="pages">Pages</a>
                                         <ul class="dropdown">

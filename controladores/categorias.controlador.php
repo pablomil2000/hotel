@@ -1,9 +1,9 @@
 <?php
 
     class CategoriasController{
-        Public function ctrMostrarCategorias(){
+        Public function ctrMostrarCategorias($inicio, $porpag){
             $tabla = "categiriahabitacion";
-            $respuesta  = CategoriasModel::mdlMostrarCategorias($tabla);
+            $respuesta  = CategoriasModel::mdlMostrarCategorias($tabla, $inicio, $porpag);
             return $respuesta;
         }
     }

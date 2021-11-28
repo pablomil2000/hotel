@@ -1,6 +1,6 @@
 <?php
 $categorias = new CategoriasController();
-$Habitaciones = $categorias->ctrMostrarCategorias();
+$Habitaciones = $categorias->ctrMostrarCategorias(1, 4);
 ?>
 <section class="hp-room-section">
     <div class="container-fluid">
