@@ -2,6 +2,9 @@
 
 <?php
 
+$habitaciones= new CategoriasController();
+$direcciones = $habitaciones->ctrURLCategorias();
+
 if (isset($_GET['ruta'])) {
     if (
         $_GET['ruta'] == 'inicio' ||
@@ -13,9 +16,27 @@ if (isset($_GET['ruta'])) {
     ) {
         include('modulos/' . $_GET['ruta'] . '.php');
     } else {
-        include('modulos/404.php');
+        foreach ($direcciones as $direccion) {
+            
+            // echo $_GET['ruta']." = ".$direccion['direccion']."<br>";
+            if ($_GET['ruta'] == $direccion['direccion']) {
+                $habitacion = $direccion;
+
+                include('modulos/room-details.php');
+                $a=1;
+            }
+
+        }
+
+        if (isset($a)) {
+            include('modulos/404.php');
+        }
     }
 } else {
+
+    
+
+    
     include('modulos/inicio.php');
 }
 ?>

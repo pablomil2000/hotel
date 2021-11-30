@@ -18,16 +18,17 @@ CREATE TABLE IF NOT EXISTS categiriaHabitacion(
     precio INT(5),
     capacidad INT(2),
     tipo_cama VARCHAR(50),
+    direccion VARCHAR(100),
     fecha timestamp
 );
 
-INSERT INTO categiriaHabitacion(tipo,imagen, imagen_room,tamaño,precio,capacidad,tipo_cama) VALUES
-("Doble","views/img/room/room-b1.jpg","VIEWS/img/room/room-3.jpg",8,49,2,"King Size"),
-("Premium","views/img/room/room-b2.jpg","VIEWS/img/room/room-1.jpg",12,99,2,"King Size"),
-("Deluxe","views/img/room/room-b3.jpg","VIEWS/img/room/room-2.jpg",18,149,2,"King Size"),
-("Familiar","views/img/room/room-b4.jpg","VIEWS/img/room/room-4.jpg",28,199,5,"King Size"),
-("Individual","views/img/room/room-4.jpg","VIEWS/img/room/room-4.jpg",28,199,5,"King Size"),
-("Doble","views/img/room/room-6.jpg","views/img/room/room-6.jpg",28,199,5,"King Size");
+INSERT INTO categiriaHabitacion(tipo,imagen, imagen_room,tamaño,precio,capacidad, direccion,tipo_cama) VALUES
+("Doble","views/img/room/room-b1.jpg","VIEWS/img/room/room-3.jpg",8,49,2,'habitacion-tipo-doble',"King Size"),
+("Premium","views/img/room/room-b2.jpg","VIEWS/img/room/room-1.jpg",12,99,2,'habitacion-tipo-premium',"King Size"),
+("Deluxe","views/img/room/room-b3.jpg","VIEWS/img/room/room-2.jpg",18,149,2,'habitacion-tipo-deluxe',"King Size"),
+("Familiar","views/img/room/room-b4.jpg","VIEWS/img/room/room-4.jpg",28,199,5,'habitacion-tipo-familiar',"King Size"),
+("Individual","views/img/room/room-4.jpg","VIEWS/img/room/room-4.jpg",28,199,5,'habitacion-tipo-individual',"King Size"),
+("Doble interior","views/img/room/room-6.jpg","views/img/room/room-6.jpg",28,199,5,'habitacion-tipo-doble-interior',"King Size");
 
 CREATE TABLE IF NOT EXISTS servicios(
     id_servicio INT AUTO_INCREMENT PRIMARY KEY,

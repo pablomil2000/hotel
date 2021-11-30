@@ -28,9 +28,9 @@
 
 <body>
     <!-- Page Preloder -->
-    <div id="preloder">
+    <!-- <div id="preloder">
         <div class="loader"></div>
-    </div>
+    </div> -->
 
     <!-- Offcanvas Menu Section Begin -->
     <div class="offcanvas-menu-overlay"></div>
@@ -140,14 +140,7 @@
                                     <li class="active"><a href="inicio">Home</a></li>
                                     <li><a href="index.php?ruta=Rooms">Rooms</a></li>    <!--echale un ojo a esto-->
                                     <li><a href="about-us">About Us</a></li>
-                                    <li><a href="pages">Pages</a>
-                                        <ul class="dropdown">
-                                            <li><a href="room-details">Room Details</a></li>
-                                            <li><a href="blog-details">Blog Details</a></li>
-                                            <li><a href="Family-Room">Family Room</a></li>
-                                            <li><a href="Premium-Room">Premium Room</a></li>
-                                        </ul>
-                                    </li>
+                                    <li><a href="pages">Blog</a></li>
                                     <li><a href="blob">News</a></li>
                                     <li><a href="contact">Contact</a></li>
                                 </ul>

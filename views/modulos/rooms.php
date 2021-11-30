@@ -91,7 +91,7 @@ $_SESSION['pagina'] = $pagina;
                                     </tr>
                                 </tbody>
                             </table>
-                            <a href="#" class="primary-btn">More Details</a>
+                            <a href="<?=$Habitacion['direccion']?>" class="primary-btn">More Details</a>
                         </div>
                     </div>
                 </div>

@@ -3,11 +3,13 @@
 
     class CarruselModel{
         public static function mdlMostrarCarrusel($tabla){
+            $conexion = Conexion::conectar();
+            $sql = "SELECT * FROM $tabla";
 
-            $sentencia = Conexion::conectar()->prepare("SELECT * FROM $tabla");
+            $sentencia = $conexion->prepare($sql);
             $sentencia->execute();
 
-            $imagenes = $sentencia->fetchAll();
-            return $imagenes;
+            $resultados = $sentencia->fetchAll();
+            return $resultados;
         }
     }

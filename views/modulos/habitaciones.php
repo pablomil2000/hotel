@@ -33,8 +33,8 @@ $Habitaciones = $categorias->ctrMostrarCategorias(1, 4);
                                             $servicios2 = $serviciosHabitaciones->ctrMostrarServiciosHabitacion($valor['Id_Categoria']);
                                             $servicio = new ServiciosController();
                                             $mostrar ='';
-                                            foreach ($servicios2 as $valor) {
-                                                $servicios = $servicio->ctrSacarServicio($valor['id_servicio']);
+                                            foreach ($servicios2 as $valor2) {
+                                                $servicios = $servicio->ctrSacarServicio($valor2['id_servicio']);
                                                 $mostrar.= $servicios['servicio'];
                                             }
                                             if ($mostrar == '') {
@@ -45,7 +45,7 @@ $Habitaciones = $categorias->ctrMostrarCategorias(1, 4);
                                         </tr>
                                     </tbody>
                                 </table>
-                                <a href="#" class="primary-btn">More Details</a>
+                                <a href="<?=$valor['direccion']?>" class="primary-btn">More Details</a>
                             </div>
                         </div>
                     </div>

@@ -12,4 +12,13 @@
             $servicios = $sentencia->fetchAll();
             return $servicios;
         }
+
+        Public static function MdlUrlCategorias($tabla){
+            $conexion = Conexion::conectar();
+            $sql ="SELECT * FROM $tabla";
+            $sentencia = $conexion->prepare($sql);
+            $sentencia->execute();
+            $servicios = $sentencia->fetchAll();
+            return $servicios;
+        }
     }
