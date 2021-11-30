@@ -40,13 +40,16 @@
                                         $serviciosHabitaciones = new serviciosHabitacionController();
                                         $servicios2 = $serviciosHabitaciones->ctrMostrarServiciosHabitacion($habitacion['Id_Categoria']);
                                         $servicio = new ServiciosController();
-                                        $mostrar = '';
+                                        $resultado = array();
                                         foreach ($servicios2 as $valor2) {
                                             $servicios = $servicio->ctrSacarServicio($valor2['id_servicio']);
-                                            $mostrar .= $servicios['servicio'];
+                                            $resultado[] = $servicios['servicio'];
                                         }
-                                        if ($mostrar == '') {
-                                            $mostrar = "No hay servicios para esta habitaciones";
+                                        if ($resultado) {
+                                            $separador = ', ';
+                                            $mostrar = General::separarArray($resultado, ', ');
+                                        } else {
+                                            $mostrar = 'No hay servicios para esta habitacion';
                                         }
                                         ?>
                                         <td><?= $mostrar ?></td>

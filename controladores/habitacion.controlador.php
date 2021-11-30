@@ -1,9 +1,15 @@
 <?php
 
-    class Habitacion{
-        Public Static Function getUrl() {
-            $tabla = "categiriahabitacion";
-            $respuesta  = CategoriasModel::mdlMostrarCategorias($tabla, $inicio, $porpag);
+    class HabitacionController{
+        Public function ctrMostrarHabitacion($inicio, $porpag){
+            $tabla = "Habitacion";
+            $respuesta  = HabitacionModel::mdlMostrarHabitacion($tabla, $inicio, $porpag);
+            return $respuesta;
+        }
+
+        Public function ctrUrlHabitacion(){
+            $tabla = "Habitacion";
+            $respuesta  = HabitacionModel::mdlUrlHabitacion($tabla);
             return $respuesta;
         }
     }

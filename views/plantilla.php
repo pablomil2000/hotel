@@ -1,9 +1,8 @@
 <?php include_once('modulos/header.php') ?>
-
 <?php
 
-$habitaciones= new CategoriasController();
-$direcciones = $habitaciones->ctrURLCategorias();
+$habitaciones= new HabitacionController();
+$direcciones = $habitaciones->ctrUrlHabitacion();
 
 if (isset($_GET['ruta'])) {
     if (
@@ -33,10 +32,6 @@ if (isset($_GET['ruta'])) {
         }
     }
 } else {
-
-    
-
-    
     include('modulos/inicio.php');
 }
 ?>

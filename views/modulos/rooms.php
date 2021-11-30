@@ -9,19 +9,19 @@ if (isset($_SESSION['pagina'])) {
 if ($_SERVER['REQUEST_METHOD'] == 'GET') {
     if (isset($_GET['pag'])) {
         $pagina = $_GET['pag'];
-    }else {
+    } else {
         $pagina = 1;
     }
 }
 
-$porpag =3 ;
+$porpag = 3;
+$tabla ="Habitacion";
 
-$inicio = $porpag*($pagina-1);
+$inicio = $porpag * ($pagina - 1);
+$paginacion = new paginacionController($tabla, $porpag, $pagina);
+$categorias = new HabitacionController();
 
-$paginacion = new paginacionController("categiriahabitacion", $porpag, $pagina);
-$categorias = new CategoriasController();
-
-$Habitaciones = $categorias->ctrMostrarCategorias($inicio, $porpag);
+$Habitaciones = $categorias->ctrMostrarHabitacion($inicio, $porpag);
 
 $_SESSION['pagina'] = $pagina;
 ?>
@@ -51,53 +51,62 @@ $_SESSION['pagina'] = $pagina;
     <div class="container">
         <div class="row">
             <?php foreach ($Habitaciones as $Habitacion) : ?>
-                
+
                 <div class="col-lg-4 col-md-6">
                     <div class="room-item">
-                        <img src="<?=$Habitacion['imagen_room']?>" alt="">
+                        <img src="<?= $Habitacion['imagen_room'] ?>" alt="">
                         <div class="ri-text">
-                            <h4><?=$Habitacion['tipo']?></h4>
-                            <h3><?=$Habitacion['precio']?><span>/Pernight</span></h3>
+                            <h4><?= $Habitacion['tipo'] ?></h4>
+                            <h3><?= $Habitacion['precio'] ?><span>/Pernight</span></h3>
                             <table>
                                 <tbody>
                                     <tr>
                                         <td class="r-o">Size:</td>
-                                        <td><?=$Habitacion['tamaño']?> ft</td>
+                                        <td><?= $Habitacion['tamaño'] ?> ft</td>
                                     </tr>
                                     <tr>
                                         <td class="r-o">Capacity:</td>
-                                        <td>Max persion <?=$Habitacion['capacidad']?></td>
+                                        <td>Max persion <?= $Habitacion['capacidad'] ?></td>
                                     </tr>
                                     <tr>
                                         <td class="r-o">Bed:</td>
-                                        <td><?=$Habitacion['tipo_cama']?></td>
+                                        <td><?= $Habitacion['tipo_cama'] ?></td>
                                     </tr>
                                     <tr>
-                                        <td class="r-o">Services:</td>
-                                        <?php
+                                            <td class="r-o">Services:</td>
+                                            <?php
                                             $serviciosHabitaciones = new serviciosHabitacionController();
                                             $servicios2 = $serviciosHabitaciones->ctrMostrarServiciosHabitacion($Habitacion['Id_Categoria']);
                                             $servicio = new ServiciosController();
-                                            $mostrar ='';
-                                            foreach ($servicios2 as $valor) {
-                                                $servicios = $servicio->ctrSacarServicio($valor['id_servicio']);
-                                                $mostrar.= $servicios['servicio'].",";
+                                            $resultado=Array();
+                                            foreach ($servicios2 as $valor2) {
+                                                $servicios = $servicio->ctrSacarServicio($valor2['id_servicio']);
+                                                $resultado[] = $servicios['servicio'];
                                             }
-                                            if ($mostrar == '') {
-                                                $mostrar = "No hay servicios para esta habitaciones";
+                                            if ($resultado) {
+                                                $separador =', ';
+                                                $mostrar = General::separarArray($resultado,', ');
+                                            }else {
+                                                $mostrar='No hay servicios para esta habitacion';
                                             }
                                             ?>
-                                        <td><?=$mostrar?></td>
-                                    </tr>
+                                            <td><?=$mostrar?></td>
+                                        </tr>
                                 </tbody>
                             </table>
-                            <a href="<?=$Habitacion['direccion']?>" class="primary-btn">More Details</a>
+                            <a href="<?= $Habitacion['direccion'] ?>" class="primary-btn">More Details</a>
                         </div>
                     </div>
                 </div>
             <?php endforeach; ?>
 
-            <div class="col-lg-12">
+            <div class="col-lg-4">
+                <div class="room-pagination">
+                    <a href="index.php?ruta=Rooms&pag=1"><i class="fa fa-long-arrow-up"></i> Primera</a>
+                </div>
+            </div>
+
+            <div class="col-lg-4">
                 <div class="room-pagination">
                     <a href="index.php?ruta=Rooms&pag=<?= $paginacion->antPagina() ?>"><i class="fa fa-long-arrow-left"></i> Prev</a>
 
@@ -107,8 +116,13 @@ $_SESSION['pagina'] = $pagina;
                         echo '<a href="index.php?ruta=Rooms&pag=' . $i . '">' . $i . '</a>';
                     }
                     ?>
-
                     <a href="index.php?ruta=Rooms&pag=<?= $paginacion->sigPagina() ?>">Next <i class="fa fa-long-arrow-right"></i></a>
+                </div>
+            </div>
+
+            <div class="col-lg-4">
+                <div class="room-pagination">
+                    <a href="index.php?ruta=Rooms&pag=<?= $paginacion->totalPag ?>">Ultima <i class="fa fa-long-arrow-down"></i></a>
                 </div>
             </div>
         </div>

@@ -9,7 +9,7 @@ INSERT INTO carrusel(img) VALUES
 ('views/img/hero/hero-2.jpg'),
 ('views/img/hero/hero-3.jpg');
 
-CREATE TABLE IF NOT EXISTS categiriaHabitacion(
+CREATE TABLE IF NOT EXISTS Habitacion(
     Id_Categoria INT AUTO_INCREMENT PRIMARY KEY,
     tipo VARCHAR(75),
     imagen VARCHAR(100),
@@ -22,7 +22,7 @@ CREATE TABLE IF NOT EXISTS categiriaHabitacion(
     fecha timestamp
 );
 
-INSERT INTO categiriaHabitacion(tipo,imagen, imagen_room,tamaño,precio,capacidad, direccion,tipo_cama) VALUES
+INSERT INTO Habitacion(tipo,imagen, imagen_room,tamaño,precio,capacidad, direccion,tipo_cama) VALUES
 ("Doble","views/img/room/room-b1.jpg","VIEWS/img/room/room-3.jpg",8,49,2,'habitacion-tipo-doble',"King Size"),
 ("Premium","views/img/room/room-b2.jpg","VIEWS/img/room/room-1.jpg",12,99,2,'habitacion-tipo-premium',"King Size"),
 ("Deluxe","views/img/room/room-b3.jpg","VIEWS/img/room/room-2.jpg",18,149,2,'habitacion-tipo-deluxe',"King Size"),
@@ -52,7 +52,7 @@ CREATE TABLE IF NOT EXISTS serviciosHabitacion(
 );
 
 
-ALTER TABLE serviciosHabitacion ADD FOREIGN KEY (id_categoria) REFERENCES categiriaHabitacion (Id_Categoria) ON DELETE CASCADE;
+ALTER TABLE serviciosHabitacion ADD FOREIGN KEY (id_categoria) REFERENCES Habitacion (Id_Categoria) ON DELETE CASCADE;
 ALTER TABLE serviciosHabitacion ADD FOREIGN KEY (id_servicio) REFERENCES servicios (id_servicio) ON DELETE CASCADE;
 
 

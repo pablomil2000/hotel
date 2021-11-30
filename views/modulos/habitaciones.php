@@ -1,6 +1,6 @@
 <?php
-$categorias = new CategoriasController();
-$Habitaciones = $categorias->ctrMostrarCategorias(1, 4);
+$categorias = new HabitacionController();
+$Habitaciones = $categorias->ctrMostrarHabitacion(0, 4);
 ?>
 <section class="hp-room-section">
     <div class="container-fluid">
@@ -32,13 +32,16 @@ $Habitaciones = $categorias->ctrMostrarCategorias(1, 4);
                                             $serviciosHabitaciones = new serviciosHabitacionController();
                                             $servicios2 = $serviciosHabitaciones->ctrMostrarServiciosHabitacion($valor['Id_Categoria']);
                                             $servicio = new ServiciosController();
-                                            $mostrar ='';
+                                            $resultado=Array();
                                             foreach ($servicios2 as $valor2) {
                                                 $servicios = $servicio->ctrSacarServicio($valor2['id_servicio']);
-                                                $mostrar.= $servicios['servicio'];
+                                                $resultado[] = $servicios['servicio'];
                                             }
-                                            if ($mostrar == '') {
-                                                $mostrar = "No hay servicios para esta habitaciones";
+                                            if ($resultado) {
+                                                $separador =', ';
+                                                $mostrar = General::separarArray($resultado,', ');
+                                            }else {
+                                                $mostrar='No hay servicios para esta habitacion';
                                             }
                                             ?>
                                             <td><?=$mostrar?></td>
