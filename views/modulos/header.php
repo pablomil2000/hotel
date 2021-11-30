@@ -60,7 +60,7 @@
         <nav class="mainmenu mobile-menu">
             <ul>
                 <li class="active"><a href="./index.html">Home</a></li>
-                <li><a href="rooms">Rooms</a></li>
+                <li><a href="index.php?ruta?rooms&pag=1">Rooms</a></li>
                 <li><a href="about-us">About Us</a></li>
                 <li><a href="pages">Pages</a>
                     <ul class="dropdown">
@@ -138,7 +138,7 @@
                             <nav class="mainmenu">
                                 <ul>
                                     <li class="active"><a href="inicio">Home</a></li>
-                                    <li><a href="Rooms&pag=1">Rooms</a></li>    <!--echale un ojo a esto-->
+                                    <li><a href="index.php?ruta=Rooms">Rooms</a></li>    <!--echale un ojo a esto-->
                                     <li><a href="about-us">About Us</a></li>
                                     <li><a href="pages">Pages</a>
                                         <ul class="dropdown">

@@ -9,6 +9,8 @@ if (isset($_SESSION['pagina'])) {
 if ($_SERVER['REQUEST_METHOD'] == 'GET') {
     if (isset($_GET['pag'])) {
         $pagina = $_GET['pag'];
+    }else {
+        $pagina = 1;
     }
 }
 
@@ -97,16 +99,16 @@ $_SESSION['pagina'] = $pagina;
 
             <div class="col-lg-12">
                 <div class="room-pagination">
-                    <a href="Rooms&pag=<?= $paginacion->antPagina() ?>"><i class="fa fa-long-arrow-left"></i> Prev</a>
+                    <a href="index.php?ruta=Rooms&pag=<?= $paginacion->antPagina() ?>"><i class="fa fa-long-arrow-left"></i> Prev</a>
 
                     <?php
                     $totalpag = $paginacion->totalPag;
                     for ($i = 1; $i <= $totalpag; $i++) {
-                        echo '<a href="Rooms&pag=' . $i . '">' . $i . '</a>';
+                        echo '<a href="index.php?ruta=Rooms&pag=' . $i . '">' . $i . '</a>';
                     }
                     ?>
 
-                    <a href="Rooms&pag=<?= $paginacion->sigPagina() ?>">Next <i class="fa fa-long-arrow-right"></i></a>
+                    <a href="index.php?ruta=Rooms&pag=<?= $paginacion->sigPagina() ?>">Next <i class="fa fa-long-arrow-right"></i></a>
                 </div>
             </div>
         </div>
