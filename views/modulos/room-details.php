@@ -93,3 +93,5 @@
         </div>
     </section>
     <!-- Room Details Section End -->
+
+    <?php include_once('reviews.php'); ?>
