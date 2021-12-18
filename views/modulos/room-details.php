@@ -1,4 +1,4 @@
-    <!-- Room Details Section Begin -->
+<!-- Room Details Section Begin -->
     <section class="room-details-section spad">
         <div class="container">
             <div class="row">
@@ -62,27 +62,26 @@
                 <div class="col-lg-4">
                     <div class="room-booking">
                         <h3>Your Reservation</h3>
-                        <form action="#">
+                        <form action="reservas" method="POST">
+                            <input type="hidden" name="Id_Categoria" value="<?=$habitacion['Id_Categoria']?>">
                             <div class="check-date">
-                                <label for="date-in">Check In:</label>
-                                <input type="text" class="date-input" id="date-in">
+                                <label for="date-in">Fecha de entrada:</label>
+                                <input type="text" class="date-input" id="date-in" name="entrada" autocomplete="off">
                                 <i class="icon_calendar"></i>
                             </div>
                             <div class="check-date">
-                                <label for="date-out">Check Out:</label>
-                                <input type="text" class="date-input" id="date-out">
+                                <label for="date-out">Fecha de salida:</label>
+                                <input type="text" class="date-input" id="date-out" name="salida" autocomplete="off">
                                 <i class="icon_calendar"></i>
                             </div>
                             <div class="select-option">
                                 <label for="guest">Guests:</label>
-                                <select id="guest">
-                                    <option value="">3 Adults</option>
-                                </select>
-                            </div>
-                            <div class="select-option">
-                                <label for="room">Room:</label>
-                                <select id="room">
-                                    <option value="">1 Room</option>
+                                <select id="guest" name="ocupar">
+                                    <?php
+                                        for ($i=1; $i <= $habitacion['capacidad']; $i++) { 
+                                            echo '<option value="'.$i.'">'.$i.' Persona</option>';
+                                        }
+                                    ?>
                                 </select>
                             </div>
                             <button type="submit">Check Availability</button>

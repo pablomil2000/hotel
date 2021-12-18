@@ -222,3 +222,19 @@ VALUES
     'Lorem ipsum dolor sit amet consectetur adipisicing elit. Eveniet id ducimus culpa quo laudantium. Est aut numquam asperiores, maxime, repellendus esse blanditiis fugiat consectetur quasi rem praesentium aliquam similique voluptate?',
     '1'
   );
+
+CREATE TABLE IF NOT EXISTS Reservas(
+  Id_reservasId INT(11) PRIMARY KEY AUTO_INCREMENT,
+  Id_habitacion INT(11),
+  Id_usuario INT(11),
+  pago FLOAT(4,2),
+  localizador VARCHAR(30),
+  description VARCHAR(200),
+  fecha_reserva timestamp,
+  fecha_entrada date,
+  fecha_salida date
+);
+
+INSERT INTO Reservas(id_reservasId, id_habitacion, id_usuario, pago, localizador,description,fecha_entrada,fecha_salida) VALUES
+(1,1,1,98,'9YXR0H19L','Habitacion doble, 2 personas, 2 dias', '2021-12-06', CURDATE()),
+(2,2,1,297,'5PXX2J33H','Habitacion premium, 2 personas, 2 dias', '2021-12-06', CURDATE())

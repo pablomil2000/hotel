@@ -11,7 +11,8 @@ if (isset($_GET['ruta'])) {
         $_GET['ruta'] == 'about' ||
         $_GET['ruta'] == 'pages' ||
         $_GET['ruta'] == 'news' ||
-        $_GET['ruta'] == 'contact'
+        $_GET['ruta'] == 'contact'||
+        $_GET['ruta'] == 'reservas'
     ) {
         include('modulos/' . $_GET['ruta'] . '.php');
     } else {

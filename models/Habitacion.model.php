@@ -19,4 +19,14 @@
             return $categorias;
         }
 
+        Public static function mdlHabitacionId($tabla, $campo, $id){
+            $conexion = Conexion::conectar();
+            $sql = "SELECT * FROM $tabla WHERE $campo LIKE $id";
+
+            $resultado = $conexion->query($sql);
+            $respuesta = $resultado->fetch();
+
+            return $respuesta;
+        }
+
     }

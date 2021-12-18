@@ -12,4 +12,12 @@
             $respuesta  = HabitacionModel::mdlUrlHabitacion($tabla);
             return $respuesta;
         }
+
+        Public function ctrHabitacionId($id){
+
+            $tabla = "Habitacion";
+            $campo = "Id_Categoria";
+            $respuesta = HabitacionModel::mdlHabitacionId($tabla, $campo, $id);
+            return $respuesta;
+        }
     }
